@@ -1,0 +1,23 @@
+{
+  "name": "jir-tarifa-luz",
+  "version": "0.1.0",
+  "description": "MagicMirror2 module to show next interval of light tarification",
+  "main": "JIR-tarifa-luz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jirsis/JIR-tarifa-luz.git"
+  },
+  "keywords": [
+    "magicmirror2",
+    "javascript"
+  ],
+  "author": "J. Ignacio Reta Sabarrós (jirsis)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jirsis/JIR-tarifa-luz/issues"
+  },
+  "homepage": "https://github.com/jirsis/JIR-tarifa-luz#readme"
+}
