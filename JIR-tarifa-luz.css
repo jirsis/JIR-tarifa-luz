@@ -1,0 +1,17 @@
+.JIR-tarifa-luz .punta {
+    color: white;
+    background-color:  #FF5733 ;
+    text-align: center; 
+}
+
+.JIR-tarifa-luz .llano {
+  color: #888;
+  background-color: #f7dc6f;
+  text-align: center; 
+}
+
+.JIR-tarifa-luz .valle {
+  color: #888;;
+  background-color: lightgreen;
+  text-align: center; 
+}
