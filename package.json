@@ -1,6 +1,6 @@
 {
   "name": "jir-tarifa-luz",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MagicMirror2 module to show next interval of light tarification",
   "main": "JIR-tarifa-luz.js",
   "scripts": {
