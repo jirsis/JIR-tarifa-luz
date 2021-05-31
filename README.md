@@ -11,6 +11,8 @@ Caja de colores que indica que tarifa se está aplicando actualmente de la luz
 
 ## ToDo
 
-[x] 0.1.0 indicar la tarifa actual
-[x] 0.1.0 indicar cuanto queda para el siguiente tramo de tarifa
-[] 0.2.0 indicar barra de progreso lo que falta para el siguiente tramo
+- [x] 0.1.0 indicar la tarifa actual
+- [x] 0.1.0 indicar cuanto queda para el siguiente tramo de tarifa
+- [] 0.2.0 barra ocupa lo mismo que el reloj
+- [] 0.2.0 indicar barra de progreso lo que falta para el siguiente tramo
+- [] 0.2.0 indicar los fines de semana como valle

@@ -1,17 +1,37 @@
-.JIR-tarifa-luz .punta {
-    color: white;
-    background-color:  #FF5733 ;
-    text-align: center; 
+.progressContainer {
+  margin-top: -30px;
 }
 
-.JIR-tarifa-luz .llano {
+progress[value] {
+  -webkit-appearance: none;
+  width: 375px;
+  height: 30px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color:dimgray;
+  border-radius: 20px;
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 20px;
   color: #888;
+}
+
+
+progress.punta[value]::-webkit-progress-value {
+  color: white;
+  background-color:  #FF5733 ;
+  text-align: center; 
+}
+
+progress.llano[value]::-webkit-progress-value {
   background-color: #f7dc6f;
   text-align: center; 
 }
 
-.JIR-tarifa-luz .valle {
-  color: #888;;
+progress.valle[value]::-webkit-progress-value {
+  color: white;
   background-color: lightgreen;
   text-align: center; 
 }
