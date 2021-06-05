@@ -33,7 +33,10 @@ Module.register('JIR-tarifa-luz', {
                 end: '00:00',
                 tarifa: 'valle'
             },
-            
+        ],
+
+        festivos: [
+            '01ene.', '06ene.', '02abr.', '01may.', '12oct.', '01nov.', '06dic.', '08dic.', '25dic.' 
         ],
 
         debug: false,
@@ -103,7 +106,7 @@ Module.register('JIR-tarifa-luz', {
 
     currentTramo: function(now){
         var tramo = {}
-        if(now.day()>5){            
+        if(this.isHoliday(now) || this.isWeekEnd(now)){            
             tramo = {
                 start: moment('00:00', 'HH:mm'),
                 end: moment('23:59', 'HH:mm'),
@@ -113,6 +116,16 @@ Module.register('JIR-tarifa-luz', {
             tramo = this.weekDay(now);
         }
         return tramo;
+    },
+
+    isHoliday: function(now){
+        var today = now.format('DDMMM');
+        var isHoliday = this.config.festivos.includes(today);
+        return isHoliday;
+    },
+
+    isWeekEnd: function(now){
+        return now.day()>5
     },
 
     weekDay: function(now){
