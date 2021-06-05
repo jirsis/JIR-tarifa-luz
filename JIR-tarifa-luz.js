@@ -58,7 +58,6 @@ Module.register('JIR-tarifa-luz', {
         container.className = 'container';
         var table = document.createElement('table');
         table.className = 'small';
-        var row = document.createElement('tr');
 
         var tramo = this.currentTramo(now);
 
@@ -103,7 +102,21 @@ Module.register('JIR-tarifa-luz', {
     },
 
     currentTramo: function(now){
-         var tramo = this.config.tramos.filter( tramo => {
+        var tramo = {}
+        if(now.day()>5){            
+            tramo = {
+                start: moment('00:00', 'HH:mm'),
+                end: moment('23:59', 'HH:mm'),
+                tarifa: 'valle'
+            };
+        }else{
+            tramo = this.weekDay(now);
+        }
+        return tramo;
+    },
+
+    weekDay: function(now){
+        var tramo = this.config.tramos.filter( tramo => {
             var start = moment(tramo.start, "HH:mm");
             var end = moment(tramo.end, "HH:mm");
             if(tramo.end === '00:00'){
@@ -114,8 +127,8 @@ Module.register('JIR-tarifa-luz', {
                 tramo.end = end;
                 return tramo;
             }
-        });
-        return tramo[0];
+        })[0];
+        return tramo;
     },
 
     notificationReceived: function (notification, payload) {
