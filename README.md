@@ -16,5 +16,5 @@ Caja de colores que indica que tarifa se está aplicando actualmente de la luz
 - [x] 0.2.0 barra ocupa lo mismo que el reloj
 - [x] 0.2.0 indicar barra de progreso lo que falta para el siguiente tramo
 - [x] 0.2.0 indicar los fines de semana como valle
-- [ ] 0.3.0 indicar los festivos nacionales como valle
+- [x] 0.3.0 indicar los festivos nacionales como valle
 - [ ] 0.4.0 indicar dos tramos de igual tipo como continuos
