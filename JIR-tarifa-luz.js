@@ -125,7 +125,9 @@ Module.register('JIR-tarifa-luz', {
     },
 
     isWeekEnd: function(now){
-        return now.day()>5
+        var isWeekEnd = now.day() ==6 || now.day() == 0;
+        return isWeekEnd;
+
     },
 
     weekDay: function(now){
