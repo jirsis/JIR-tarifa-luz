@@ -31,7 +31,7 @@ Module.register('JIR-tarifa-luz', {
             {
                 start: '22:00',
                 end: '00:00',
-                tarifa: 'valle'
+                tarifa: 'llano'
             },
         ],
 
