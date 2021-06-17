@@ -1,13 +1,34 @@
-# Tarifa-luz
+# Tarifa-luz MagicMirror² module
 
-Caja de colores que indica que tarifa se está aplicando actualmente de la luz
+Progress-bar show in this interval are at concrete moment and change between them.
 
+## Screenshots
+
+![tarifa-luz screenshot green](https://github.com/jirsis/JIR-tarifa-luz/raw/master/screenshot-green.png "Tarifa-luz module valle interval")
+
+![tarifa-luz screenshot yellow](https://github.com/jirsis/JIR-tarifa-luz/raw/master/screenshot-yellow.png "Tarifa-luz module llano interval")
+
+![tarifa-luz screenshot red](https://github.com/jirsis/JIR-tarifa-luz/raw/master/screenshot-red.png "Tarifa-luz module punta interval")
+
+
+## Configuration
+
+Just add to the config file:
+
+```
+    {
+        module: "JIR-tarifa-luz",
+        position: "top_left"
+    },
+```
 
 ## Tramos
 
 * Punta: 10:00-14:00  18:00-22:00
 * Llano: 08:00-10:00  14:00-18:00  22:00-00:00
-* Valle: 00:00-08:00 + fines de semana + fiestas nacionales
+* Valle: 00:00-08:00 + weekend + local bank holiday
+
+
 
 ## ToDo
 
