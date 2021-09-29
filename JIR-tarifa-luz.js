@@ -39,6 +39,10 @@ Module.register('JIR-tarifa-luz', {
             '01ene.', '06ene.', '02abr.', '01may.', '12oct.', '01nov.', '06dic.', '08dic.', '25dic.' 
         ],
 
+        showPrice: false,
+        esiosToken: undefined,
+        esiosLocation: 8741,
+
         debug: false,
         animationSpeed: 1000,
     },
@@ -55,7 +59,7 @@ Module.register('JIR-tarifa-luz', {
         Log.log('Starting module: ' + this.name);
     },
 
-    getDom: function() {
+    getDom: async function() {
         var now = moment();
         var container = document.createElement('div');
         container.className = 'container';
@@ -69,7 +73,7 @@ Module.register('JIR-tarifa-luz', {
         let progress = document.createElement('progress');
 
         let progressLabel = document.createElement('div');        
-        progressLabel.innerHTML = this.intervalReminderLabel(tramo, now); 
+        progressLabel.innerHTML = this.intervalReminderLabel(tramo, now) + await this.updatePrice(now); 
         
         progress.setAttribute('max', this.intervalLength(tramo));
         progress.setAttribute('value', this.intervalReminder(tramo, now));
@@ -84,6 +88,37 @@ Module.register('JIR-tarifa-luz', {
 
         return container;
     },
+
+    updatePrice: async function(now){
+        if(this.config.showPrice){
+            let filtered = await this.priceNow(now);
+            let price = filtered[filtered.length-2].value/1000;
+            return ` - ${price.toPrecision(4)}€/kWh`;
+        }
+    },
+
+    pricesCached: [],
+
+    priceNow: async function(now){
+        if(this.pricesCached.length === 0 || moment(this.pricesCached[0].datetime).date() !== now.date() ){
+            let response = await fetch("https://api.esios.ree.es/indicators/1001", { 
+                method: 'GET',
+                headers: new Headers({
+                    'Accept': 'application/json; application/vnd.esios-api-v2+json', 
+                    'Content-Type': 'application/json',
+                    'Host': 'api.esios.ree.es',
+                    'Authorization': `Token token=${this.config.esiosToken}`
+                })
+            });
+            let json = await response.json();
+            this.pricesCached = json.indicator.values
+                .filter( d => d.geo_id == this.config.esiosLocation);
+        }
+        let filtered = this.pricesCached.filter( d => {
+            return moment(d.datetime).diff(now) < 60*60*1000;
+        });
+        return filtered;
+    }, 
 
     intervalLength: function(tramo){
         return tramo.end.diff(tramo.start, 'minutes');
@@ -150,7 +185,7 @@ Module.register('JIR-tarifa-luz', {
         if (notification === "CLOCK_MINUTE") {
             if(payload % 5 === 0){
                 this.updateDom(this.config.animationSpeed);
-            } 
+            }
         }
     },
 });
