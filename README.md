@@ -30,10 +30,9 @@ The following properties can be configured:
 
 | Option                       | Description
 | ---------------------------- | -----------
-| `showPrice`                  | Show the price in the current interval. <br><br> **Possible values:** `true|false` <br> **Default value:** `false`
+| `showPrice`                  | Show the price in the current interval. <br><br> **Possible values:** `true\|false` <br> **Default value:** `false`
 | `esiosToken`                 | Token to get all prices updated. You should get yours following the [e•sios instructions](https://www.esios.ree.es/es/pagina/api). <br><br> **Possible values:** `"6753856a894a0a3b27bb41cb7843db6f2d2eb88ab8cf3d49b7e39f7980cef700"` <br> **Default value:** `undefined`
-| `esiosLocation`              | Location to filter e•sios data. <br><br> **Possible values:** `8741|8742|8743|8744|8745` <br>
-8741 - Peninsula, 8742 - Canarias, 8743 - Baleares, 8744 - Ceuta, 8745 - Melilla **Default value:** `8741`
+| `esiosLocation`              | Location to filter e•sios data. <br><br> **Possible values:** `8741\|8742\|8743\|8744\|8745` <br>8741 - Península, 8742 - Canarias, 8743 - Baleares, 8744 - Ceuta, 8745 - Melilla <br><br>**Default value:** `8741`
 
 ## Tramos
 
