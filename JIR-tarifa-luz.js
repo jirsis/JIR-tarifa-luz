@@ -90,11 +90,13 @@ Module.register('JIR-tarifa-luz', {
     },
 
     updatePrice: async function(now){
+        let priceLabel = '';
         if(this.config.showPrice){
             let filtered = await this.priceNow(now);
             let price = filtered[filtered.length-2].value/1000;
-            return ` - ${price.toPrecision(4)}€/kWh`;
+            priceLabel = ` - ${price.toPrecision(4)}€/kWh`;
         }
+        return priceLabel;
     },
 
     pricesCached: [],
